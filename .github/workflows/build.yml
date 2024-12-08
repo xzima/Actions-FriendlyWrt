@@ -1,6 +1,10 @@
 on:
   watch:
     types: started
+  push:
+    tags:
+      - "v*.*.*"
+    
 jobs:
   prepare_release:
     runs-on: ubuntu-20.04
