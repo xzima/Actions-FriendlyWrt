@@ -1,10 +1,10 @@
+name: Create Release on Tag
+# on: [workflow_dispatch]
 on:
-  watch:
-    types: started
   push:
     tags:
       - "v*.*.*"
-    
+
 jobs:
   prepare_release:
     runs-on: ubuntu-20.04
