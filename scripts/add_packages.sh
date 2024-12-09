@@ -34,15 +34,8 @@ sed -i -e '/boardname=/r /tmp/appendtext.txt' friendlywrt/target/linux/rockchip/
 # }}
 
 # {{ Add amneziawg
-(cd friendlywrt && {
-    mkdir -p package/kmod-amneziawg
-    wget https://raw.githubusercontent.com/wadimk/awg-openwrt/refs/heads/master/kmod-amneziawg/Makefile -O package/kmod-amneziawg/Makefile
-
-    mkdir -p package/amneziawg-tools
-    wget https://raw.githubusercontent.com/wadimk/awg-openwrt/refs/heads/master/amneziawg-tools/Makefile -O package/amneziawg-tools/Makefile
-
-    mkdir -p package/luci-app-amneziawg
-    wget https://raw.githubusercontent.com/wadimk/awg-openwrt/refs/heads/master/luci-app-amneziawg/Makefile -O package/luci-app-amneziawg/Makefile
+(cd friendlywrt/package && {
+    git clone https://github.com/wadimk/awg-openwrt.git --depth 1 -b master .
 })
 cat >> configs/rockchip/01-nanopi <<EOL
 
