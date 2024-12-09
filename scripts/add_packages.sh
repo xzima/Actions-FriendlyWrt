@@ -39,7 +39,7 @@ sed -i -e '/boardname=/r /tmp/appendtext.txt' friendlywrt/target/linux/rockchip/
     mv /tmp/awg-openwrt.tmp/amneziawg-tools .
     mv /tmp/awg-openwrt.tmp/kmod-amneziawg .
     mv /tmp/awg-openwrt.tmp/luci-app-amneziawg .
-    rmdir /tmp/awg-openwrt.tmp
+    rmdir -rf /tmp/awg-openwrt.tmp
 })
 cat >> configs/rockchip/01-nanopi <<EOL
 
