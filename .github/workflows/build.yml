@@ -188,10 +188,9 @@ jobs:
         repo sync -c device/common --no-clone-bundle
         repo sync -c device/friendlyelec --no-clone-bundle
         repo sync -c scripts --no-clone-bundle
-        repo sync -c scripts/sd-fuse  --no-clone-bundle
-        repo sync -c toolchain  --no-clone-bundle
-        (cd kernel && git checkout nanopi6-v6.1.y)
-        (cd scripts/sd-fuse && git checkout kernel-v6.1.y)
+        repo sync -c scripts/sd-fuse --no-clone-bundle
+        repo sync -c toolchain --no-clone-bundle
+        (cd scripts/sd-fuse && git checkout kernel-6.1.y)
         
     - name: Download friendlywrt rootfs (non-docker)
       if: matrix.SET == 'non-docker'
