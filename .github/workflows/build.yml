@@ -36,7 +36,7 @@ jobs:
     strategy:
       matrix:
         VERSION: [23.05]
-        SET: [non-docker]
+        SET: [docker]
 
     steps:
     - name: Checkout
@@ -68,7 +68,7 @@ jobs:
         mkdir project
         cd project
         repo init --depth=1 -u https://github.com/friendlyarm/friendlywrt_manifests -b master-v${{ matrix.VERSION }} \
-                -m rk3588.xml --repo-url=https://github.com/friendlyarm/repo  --no-clone-bundle
+                -m rk3568.xml --repo-url=https://github.com/friendlyarm/repo  --no-clone-bundle
 
         repo sync -c friendlywrt --no-clone-bundle
         repo sync -c configs --no-clone-bundle
@@ -92,7 +92,7 @@ jobs:
         DIRNAME=friendlywrt$(echo ${{ matrix.VERSION }}|awk -F . '{print $1}')${SUFFIX}
         CONFIG=rockchip${SUFFIX}
         cat > .current_config.mk <<EOL
-        . device/friendlyelec/rk3588/base.mk
+        . device/friendlyelec/rk3568/base.mk
         TARGET_IMAGE_DIRNAME=${DIRNAME}
         TARGET_FRIENDLYWRT_CONFIG=${CONFIG}
         EOL
@@ -147,8 +147,8 @@ jobs:
     strategy:
       matrix:
         VERSION: [23.05]
-        CPU: [rk3588]
-        SET: [non-docker]
+        CPU: [rk3568]
+        SET: [docker]
     steps:
     - name: Checkout
       uses: actions/checkout@main
