@@ -34,7 +34,7 @@ sed -i -e '/boardname=/r /tmp/appendtext.txt' friendlywrt/target/linux/rockchip/
 
 # {{ Add amneziawg
 (cd friendlywrt/package && {
-    git clone https://github.com/wadimk/awg-openwrt.git --depth 1 -b master /tmp/awg-openwrt.tmp
+    git clone https://github.com/yury-sannikov/awg-openwrt.git --depth 1 -b master /tmp/awg-openwrt.tmp
     mv /tmp/awg-openwrt.tmp/amneziawg-tools .
     mv /tmp/awg-openwrt.tmp/kmod-amneziawg .
     mv /tmp/awg-openwrt.tmp/luci-app-amneziawg .
